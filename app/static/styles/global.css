@@ -1,0 +1,50 @@
+/*================ Globals ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+fieldset{
+    border: none;
+}
+
+
+/*================= VARIABLES =================*/
+
+:root {
+    /*=========== FONT AND SIZE ==============*/
+    --title-font: 'Roboto', sans-serif;;
+    --text-font: 'Open Sans', sans-serif;
+    --title-weight: 700;
+    --subtitle-weight: 500;
+    --text-weigth: 400;
+    --subtext-weiht: 200;
+    --title-size: 3rem;
+    --subtitle-size: 1.6rem;
+    --text-size:1.3rem;
+    --medium-text-size:.9rem;
+    --small-text-size: .8rem;
+
+    /*=========== MARGINS ==============*/
+    --header-margin: 8rem;
+    --boxes-margin: 1.5rem;
+
+    /*=========== COLORS ==============*/
+    --primary-color: rgba(29, 53, 87, 0.84);
+    --secondary-color: #ffffff;
+    --title-color: #f4a261;
+    --text-color: #000000;
+}

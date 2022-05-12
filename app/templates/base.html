@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('auth.static', filename='styles/signup.css') }}">
+      <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <title>{{ title }}</title>
+</head>
+<body>
+{% block navbar %}
+    <header class="header">
+        <nav class="header__navigation">
+            <img class="header__navigation-brand" src="{{ url_for('static', filename='images/logo_transparent.png') }}" alt="logo image">
+
+            <ul class="navigation__links">
+                <li class="navigation__links-link"><a class="navigation__link-element" href="#">Nosotros</a></li>
+                <li class="navigation__links-link"><a class="navigation__link-element" href="#">Soporte</a></li>
+                <li class="navigation__links-link"><a class="navigation__link-element" href="#">Contacto</a></li>
+            </ul>
+
+
+            <ul class="navigation__session">
+                <li class="navigation__links-link"><a class="navigation__link-element session" href="#">Inicio</a></li>
+                <li class="navigation__links-link"><a class="navigation__link-element session" href="#">Registro</a></li>
+            </ul>
+
+        </nav>
+    </header>
+{% endblock %}
+{% block main %}{% endblock %}
+{% block footer %}{% endblock %}
+</body>
+</html>

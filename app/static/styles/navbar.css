@@ -1,0 +1,58 @@
+/*============ NAVBAR STYLE ===========*/
+
+.header{
+    width: 100%;
+    height: var(--header-margin);
+    background-color: var(--secondary-color);
+}
+
+.header__navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.header__navigation-brand{
+    width: 10%;
+    height: auto;
+}
+
+.navigation__links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 700px;
+
+}
+
+.navigation__link-element{
+    font-family: var(--title-font);
+    font-size: var(--text-size);
+    color: var(--text-color);
+    padding: 2rem;
+    transition: all .1s ease-in-out;
+}
+
+.navigation__links-link{
+    transition: all .5s ease-in-out;
+}
+
+.navigation__links-link:hover{
+    transform: scale(1.1);
+}
+
+.navigation__links-link:hover > .navigation__link-element{
+    color: var(--title-color);
+
+}
+
+.navigation__session{
+    display: flex;
+    justify-content: space-around;
+}
+
+.session{
+    font-size: var(--medium-text-size);
+    color: #777;
+}
