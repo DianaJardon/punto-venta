@@ -3,7 +3,7 @@
 """
 
 # absolute imports
-from flask_login import UserMixin, login_manager
+from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 
 # relative imports
@@ -21,12 +21,9 @@ class User(db.Model, UserMixin):
     user_email = db.Column(db.String(120), index=True, nullable=False)
     password_hash = db.Column(db.String(120), nullable=False)
 
-    def __init__(self, user_name, last_name, user_email, password_hash) -> None:
-        self.user_name = user_name
-        self.last_name = last_name
-        self.user_email = user_email
-        self.password_hash = password_hash
-        super().__init__()
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
+
 
     @property
     def password(self):
@@ -48,9 +45,7 @@ class User(db.Model, UserMixin):
 
 
 @login_manager.user_loader
-def load_user(id):
-    return User.query.get(int(id))
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 # app interns model
-
-

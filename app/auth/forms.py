@@ -15,10 +15,13 @@ class RegistrationForm(FlaskForm):
     confirm_password = PasswordField('Confirmar Constraseña', validators=[DataRequired()])
     submit = SubmitField('Registrarse')
 
-
+    @staticmethod
     def validate_email(self, email):
         if User.query.filter_by(user_email=email.data).first():
             raise ValidationError('Email is already in use')
 
 
-# TODO: set up login view
+class LoginForm(FlaskForm):
+    email = StringField('Correo', validators=[DataRequired()])
+    password = PasswordField('Contraseña', validators=[DataRequired()])
+    submit = SubmitField('Iniciar Sesion')
