@@ -1,0 +1,50 @@
+.inventory__data{
+    border: 2px solid #777;
+    display: flex;
+    width: 1400px;
+    margin: auto;
+    padding: 2rem;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.inventory_data-container{
+    height: 200px;
+    width: 300px;
+}
+
+.inventory__data-element{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 130px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.inventory__data-title{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.element-money{
+    background-color: #8AC926;
+}
+
+.element-products{
+    background-color: #FFCA3A;
+}
+
+.element-orders{
+    background-color: #FF595E;
+}
+
+.inventory__data-element img{
+    width: 30%;
+    height: auto;
+}
+
+
+
+

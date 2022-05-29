@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('inventory.static', filename='styles/home.css') }}">
+
+{% endblock %}
+{% block main %}
+    <div class="inventory__data">
+        <div class="inventory_data-container money">
+            <div class="inventory__data-element  element-money">
+                <img src="{{ url_for('inventory.static', filename='images/salary.png') }}" alt="money"/>
+                <h2>$0</h2>
+            </div>
+            <h1 class="inventory__data-title">Efectivo</h1>
+        </div>
+        <div class="inventory_data-container">
+            <div class="inventory__data-element element-products">
+                <img src="{{ url_for('inventory.static', filename='images/paquete.png') }}" alt="package"/>
+                <h2 >$0</h2>
+            </div>
+            <h1 class="inventory__data-title">Productos</h1>
+        </div>
+        <div class="inventory_data-container">
+            <div class="inventory__data-element element-orders">
+                <img src="{{ url_for('inventory.static', filename='images/carrito-de-supermercado.png') }}" alt="package"/>
+                <h2>$0</h2>
+            </div>
+            <h1 class="inventory__data-title">Pedidos</h1>
+        </div>
+    </div>
+
+{% endblock %}
