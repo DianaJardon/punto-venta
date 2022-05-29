@@ -4,6 +4,7 @@
 
 # absolute imports
 from flask_login import UserMixin, login_manager
+from sqlalchemy import ForeignKey
 from werkzeug.security import check_password_hash, generate_password_hash
 
 # relative imports
@@ -44,13 +45,30 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return f'<Usuario: {self.user_name}'
+        return f'<Usuario: {self.useheroku}'
 
 
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
+
 # app interns model
 
 
+class Category(db.Model):
+    __tablename__ = 'category'
+    id = db.Column(db.Integer(), autoincrement=True, nullable=False, primary_key=True)
+    name = db.Column(db.String(120), index=True, nullable=False)
+    description = db.Column(db.TEXT())
+    product = db.relationship('Product')
+
+
+class Product(db.Model):
+    __tablename__ = 'product'
+    id = db.Column(db.Integer(), autoincrement=True, nullable=False, )
+    category_id = db.Column(db.Integer(), ForeignKey('category.id'))
+    name = db.Column(db.String(180), index=True, nullable=False)
+    stock = db.Column(db.BIGINT(), index=True)
+    price = db.Column(db.Float(), index=True)
+    category = db.relationship("Category", backref="product")
