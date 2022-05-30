@@ -1,5 +1,5 @@
 # third party libraries
-from flask import render_template, flash
+from flask import render_template, flash, redirect, url_for
 from flask_login import login_required, login_user, logout_user
 # local imports
 from .forms import RegistrationForm, LoginForm
@@ -24,7 +24,7 @@ def register():
         db.session.commit()
         flash('te has registrado correctamente')
         print('te has registrado correctamente')
-        return 'you have logged in'
+        return redirect(url_for('auth.login'))
 
     print(form.errors)
     return render_template('auth/signup.html', form=form, title='Signup')
@@ -39,7 +39,7 @@ def login():
             form.password.data
         ):
             login_user(user)
-            return 'you have logged in'
+            return redirect(url_for('inventory.home'))
         else:
             print('Invalid email or password')
             flash('Invalid email or password')

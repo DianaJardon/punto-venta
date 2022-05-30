@@ -22,12 +22,8 @@ class User(db.Model, UserMixin):
     user_email = db.Column(db.String(120), index=True, nullable=False)
     password_hash = db.Column(db.String(120), nullable=False)
 
-    def __init__(self, user_name, last_name, user_email, password_hash) -> None:
-        self.user_name = user_name
-        self.last_name = last_name
-        self.user_email = user_email
-        self.password_hash = password_hash
-        super().__init__()
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
 
     @property
     def password(self):
@@ -45,7 +41,7 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return f'<Usuario: {self.useheroku}'
+        return f'<Usuario: {self.user_name}'
 
 
 @login_manager.user_loader
@@ -61,14 +57,13 @@ class Category(db.Model):
     id = db.Column(db.Integer(), autoincrement=True, nullable=False, primary_key=True)
     name = db.Column(db.String(120), index=True, nullable=False)
     description = db.Column(db.TEXT())
-    product = db.relationship('Product')
+    product = db.relationship('Product', backref="product", lazy=True)
 
 
 class Product(db.Model):
     __tablename__ = 'product'
-    id = db.Column(db.Integer(), autoincrement=True, nullable=False, )
-    category_id = db.Column(db.Integer(), ForeignKey('category.id'))
+    id = db.Column(db.Integer(), autoincrement=True, nullable=False, primary_key=True)
+    category_id = db.Column(db.Integer(), ForeignKey('category.id'), nullable=False)
     name = db.Column(db.String(180), index=True, nullable=False)
     stock = db.Column(db.BIGINT(), index=True)
     price = db.Column(db.Float(), index=True)
-    category = db.relationship("Category", backref="product")

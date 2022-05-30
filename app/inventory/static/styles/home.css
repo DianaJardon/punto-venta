@@ -46,5 +46,42 @@
 }
 
 
+/* Inventory and products*/
+
+.products{
+    padding: 20px;
+}
+
+.products__description{
+    display: grid;
+    grid-template-columns: 500px 450px 400px 60px;
+    font-family: var(--title-font);
+}
+
+.products__product{
+    display: grid;
+    grid-template-columns: 500px 450px 400px  60px;
+    font-family: var(--title-font);
+    padding: 18px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-weight: var(--subtitle-weight);
+    margin-top: 2.5rem;
+    box-shadow: 26px 20px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: .7s ease-out;
+}
+
+.products__product:hover{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: scale(1.01);
+}
+
+
+
+
+
+
 
 

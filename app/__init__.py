@@ -28,5 +28,7 @@ def create_app(type_config):
     migrate = Migrate(app, db)
     from app import models
     from .auth import auth as auth_blueprint
+    from .inventory import inventory as inventory_blueprint
     app.register_blueprint(auth_blueprint)
+    app.register_blueprint(inventory_blueprint)
     return app

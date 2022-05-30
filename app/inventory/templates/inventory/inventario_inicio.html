@@ -7,7 +7,7 @@
     <div class="inventory__data">
         <div class="inventory_data-container money">
             <div class="inventory__data-element  element-money">
-                <img src="{{ url_for('inventory.static', filename='images/salary.png') }}" alt="money"/>
+                <img src="{{ url_for('inventory.static', filename='images/salary.png') }}" alt="package"/>
                 <h2>$0</h2>
             </div>
             <h1 class="inventory__data-title">Efectivo</h1>
@@ -26,6 +26,29 @@
             </div>
             <h1 class="inventory__data-title">Pedidos</h1>
         </div>
+    </div>
+
+
+    <div class="products">
+    <div class="products__description">
+        <h3>Nombre</h3>
+        <h3>Cantidad</h3>
+        <h3>Precio</h3>
+        <h3>Descripción</h3>
+    </div>
+        {% if products != None %}
+            {% for product in products %}
+                 <div class="products__product">
+                    <p>{{product.name}}</p>
+                    <p>{{product.stock}}</p>
+                    <p>${{product.price}}</p>
+                    <p>{{product.description}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
+
     </div>
 
 {% endblock %}
